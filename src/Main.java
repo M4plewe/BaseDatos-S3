@@ -1,10 +1,18 @@
+import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
 import javax.swing.*;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
     public static void main(String[] args) {
+
+        // Establecer FlatDarkLaf como Look and Feel
+        try {
+            UIManager.setLookAndFeel(new FlatArcOrangeIJTheme());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+
+
 
         UserManager userManager = new UserManager();
         ArbolBinario arbolEventos = new ArbolBinario();
@@ -54,7 +62,6 @@ public class Main {
         Evento evento15 = new Evento("Torneo de Videojuegos", "Tecnología", "Madrid", "Un torneo de e-sports con los mejores jugadores del país.");
         arbolEventos.agregar(evento15);
 
-
         JFrame frame = new JFrame("InterfazInicio");
         frame.setContentPane(new InterfazInicio(userManager, arbolEventos).panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,5 +70,7 @@ public class Main {
         frame.setLocationRelativeTo(null); // Esto centrará la ventana
         frame.setResizable(false); // Hacer que la ventana no sea redimensionable
         frame.setVisible(true);
+
+
     }
 }
