@@ -1,3 +1,6 @@
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubDarkIJTheme;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,6 +12,7 @@ public class InterfazInicio{
     private JButton aceptarButton;
     private JButton registrarseButton;
     private JTextField textField1;
+    private JButton cambiarTemaButton;
     UserManager userManager;
     ArbolBinario arbolEventos;
 
@@ -83,6 +87,26 @@ public class InterfazInicio{
                 JFrame frame2 = (JFrame) SwingUtilities.getWindowAncestor(panel1);
                 frame2.dispose();
 
+
+            }
+        });
+        cambiarTemaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                //Cambiar el tema de la interfaz de FlatGitHubIJTheme a FlatGitHubDarkIJTheme y viceversa
+                try {
+                    if (UIManager.getLookAndFeel() instanceof FlatGitHubIJTheme) {
+                        UIManager.setLookAndFeel(new FlatGitHubDarkIJTheme());
+                        cambiarTemaButton.setText("Modo Día");
+                    } else {
+                        UIManager.setLookAndFeel(new FlatGitHubIJTheme());
+                        cambiarTemaButton.setText("Modo Noche");
+                    }
+                    SwingUtilities.updateComponentTreeUI(panel1);
+                } catch (UnsupportedLookAndFeelException ex) {
+                    ex.printStackTrace();
+                }
 
             }
         });

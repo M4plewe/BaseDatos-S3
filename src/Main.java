@@ -1,4 +1,4 @@
-import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatGitHubIJTheme;
 import javax.swing.*;
 
 public class Main {
@@ -6,8 +6,9 @@ public class Main {
     public static void main(String[] args) {
 
         // Establecer FlatDarkLaf como Look and Feel
+
         try {
-            UIManager.setLookAndFeel(new FlatArcOrangeIJTheme());
+            UIManager.setLookAndFeel(new FlatGitHubIJTheme());
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
