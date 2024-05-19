@@ -98,10 +98,8 @@ public class InterfazInicio{
                 try {
                     if (UIManager.getLookAndFeel() instanceof FlatGitHubIJTheme) {
                         UIManager.setLookAndFeel(new FlatGitHubDarkIJTheme());
-                        cambiarTemaButton.setText("Modo Día");
                     } else {
                         UIManager.setLookAndFeel(new FlatGitHubIJTheme());
-                        cambiarTemaButton.setText("Modo Noche");
                     }
                     SwingUtilities.updateComponentTreeUI(panel1);
                 } catch (UnsupportedLookAndFeelException ex) {

@@ -6,7 +6,6 @@ public class Main {
     public static void main(String[] args) {
 
         // Establecer FlatDarkLaf como Look and Feel
-
         try {
             UIManager.setLookAndFeel(new FlatGitHubIJTheme());
         } catch (UnsupportedLookAndFeelException e) {
