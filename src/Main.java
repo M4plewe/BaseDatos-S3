@@ -5,6 +5,10 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //Establecer icono de la aplicación
+
+        ImageIcon icon = new ImageIcon("src/imagenes/icono.jpg");
+
         // Establecer FlatDarkLaf como Look and Feel
         try {
             UIManager.setLookAndFeel(new FlatGitHubIJTheme());
@@ -20,6 +24,7 @@ public class Main {
         arbolEventos.eventosPredeterminados(arbolEventos);
 
         JFrame frame = new JFrame("InterfazInicio");
+        frame.setIconImage(icon.getImage()); // Aquí se establece el icono
         frame.setContentPane(new InterfazInicio(userManager, arbolEventos).panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
