@@ -15,4 +15,5 @@ public class Evento {
     public int getGenteInscrita() {
         return GenteInscrita;
     }
+
 }
