@@ -38,6 +38,18 @@ public class InterfazMenuAdmin {
                 String nombre = JOptionPane.showInputDialog("Ingrese el nombre del evento a eliminar");
                 arbolEventos.eliminar(nombre);
                 mostrarEventos();
+                //tambien se eliminda del HashMap de usuarios
+                List<String> usuarios = userManager.obtenerUsuarios();
+                for (String usuario : usuarios) {
+                    List<Evento> eventosUsuario = userManager.getUserEvents(usuario);
+                    for (Evento evento : eventosUsuario) {
+                        if (evento.nombre.equals(nombre)) {
+                            eventosUsuario.remove(evento);
+                            userManager.setUserEvents(usuario, eventosUsuario);
+                            break;
+                        }
+                    }
+                }
             }
         });
         cerrarSesionButton.addActionListener(new ActionListener() {
@@ -71,6 +83,19 @@ public class InterfazMenuAdmin {
                 eventoNuevo.GenteInscrita = asistentes;
                 arbolEventos.agregar(eventoNuevo); // Add the new event, not the old one
                 mostrarEventos();
+                //tambien se actualiza en el HashMap de usuarios
+                List<String> usuarios = userManager.obtenerUsuarios();
+                for (String usuario : usuarios) {
+                    List<Evento> eventosUsuario = userManager.getUserEvents(usuario);
+                    for (Evento eventoUsuario : eventosUsuario) {
+                        if (eventoUsuario.nombre.equals(nombre)) {
+                            eventosUsuario.remove(eventoUsuario);
+                            eventosUsuario.add(eventoNuevo);
+                            userManager.setUserEvents(usuario, eventosUsuario);
+                            break;
+                        }
+                    }
+                }
             }
         });
     }

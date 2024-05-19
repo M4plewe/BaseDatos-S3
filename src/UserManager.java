@@ -35,4 +35,12 @@ public class UserManager {
     public List<Evento> getUserEvents(String username) {
         return userEvents.get(username);
     }
+
+    public void setUserEvents(String usuarioActual, List<Evento> eventosUsuario) {
+        userEvents.put(usuarioActual, eventosUsuario);
+    }
+
+    public List<String> obtenerUsuarios() {
+        return new ArrayList<>(users.keySet());
+    }
 }
